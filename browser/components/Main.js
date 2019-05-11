@@ -13,6 +13,7 @@ export default class Main extends Component {
     };
 
     this.selectStudent = this.selectStudent.bind(this);
+    //this.createNewStudent = this.createNewStudent.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,16 @@ export default class Main extends Component {
     }
   }
 
+  // async createNewStudent() {
+  //   console.log('creating ..');
+  //   try {
+  //     const { data } = await axios.put('/student');
+  //     this.setState({ students: data });
+  //   } catch (error) {
+  //     console.log('something went wrong');
+  //   }
+  // }
+
   selectStudent(student) {
     return this.setState({
       selectedStudent: student,
@@ -39,6 +50,9 @@ export default class Main extends Component {
     return (
       <div>
         <h1>Students</h1>
+        <div>
+          <button type="submit">Add student</button>
+        </div>
         <table>
           <thead>
             <tr>

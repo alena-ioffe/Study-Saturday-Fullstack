@@ -28,6 +28,22 @@ router.put('/:id', function(req, res, next) {
     .catch(next);
 });
 
+router.post('/', async (req, res, next) => {
+  try {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+    const newStudent = await Student.create({
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+    });
+    res.status(201).JSON(newStudent);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.delete('/:id', function(req, res, next) {
   Student.destroy({
     where: {
